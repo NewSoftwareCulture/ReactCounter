@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counter red={5} green={7} blue={10}/>
+    <Counter red={5} green={5} blue={200} />
   </React.StrictMode>,
   document.getElementById('root')
 );
