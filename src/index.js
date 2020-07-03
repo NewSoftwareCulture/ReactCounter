@@ -5,7 +5,7 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counter min={-10} max={10} value={5} />
+    <Counter min={-10} max={10} value={5} onChange={value => console.log(value)}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -7,21 +7,22 @@ class Counter extends React.Component {
     super(props);
     this.points = { min: props.min || -100, max: props.max || 100};
     this.state = { counter: props.value };
+    this.onChange = props.onChange || function () {};
   }
-  render() {
+  render(onChange) {
     const increment = () => this.state.counter !== this.points.max ? this.setState({ counter: this.state.counter + 1} ) : {};
     const decrement = () => this.state.counter !== this.points.min ? this.setState({ counter: this.state.counter - 1} ) : {};
-
+    this.onChange(this.state.counter);
     return (
       <div className="App">
-        <h1> Task 1.4 – Counter with init state </h1>
+        <h1> Task 1.5 – Counter with callback </h1>
         <button onClick = { increment }> + </button>
         &ensp;&ensp; { this.state.counter } &ensp;&ensp;
         <button onClick = { decrement }> - </button>
       </div>
     );
   };
-}
+};
 
 Counter.propTypes = {
   min: PropTypes.number,
