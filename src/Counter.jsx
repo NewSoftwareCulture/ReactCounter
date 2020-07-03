@@ -6,7 +6,7 @@ class Counter extends React.Component {
   constructor(props) {
     super(props);
     this.points = { min: props.min || -100, max: props.max || 100};
-    this.state = { counter: 0 };
+    this.state = { counter: props.value };
   }
   render() {
     const increment = () => this.state.counter !== this.points.max ? this.setState({ counter: this.state.counter + 1} ) : {};
@@ -14,7 +14,7 @@ class Counter extends React.Component {
 
     return (
       <div className="App">
-        <h1> Task 1.3 – Counter with bounds </h1>
+        <h1> Task 1.4 – Counter with init state </h1>
         <button onClick = { increment }> + </button>
         &ensp;&ensp; { this.state.counter } &ensp;&ensp;
         <button onClick = { decrement }> - </button>
@@ -26,6 +26,7 @@ class Counter extends React.Component {
 Counter.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
+  value: PropTypes.number,
 };
 
 export default Counter;
