@@ -7,17 +7,15 @@ class App extends React.Component {
     this.state = { counter: 0 };
   }
   render() {
-    const increment = () => {
-      let newCount = this.state.counter;
-      newCount++;
-      this.setState({ counter: newCount} );
-    }
+    const increment = () => this.setState({ counter: this.state.counter + 1} );
+    const decrement = () => this.setState({ counter: this.state.counter - 1} );
+    
     return (
       <div className="App">
-        <h1>Task 1.1 – Counter</h1>
-        <button onClick = { increment }>
-          Button was clicked: { this.state.counter } times
-        </button>
+        <h1> Task 1.2 – Counter +/- </h1>
+        <button onClick = { increment }> + </button>
+        &ensp;&ensp; { this.state.counter } &ensp;&ensp;
+        <button onClick = { decrement }> - </button>
       </div>
     );
   };
