@@ -7,7 +7,11 @@ class Counter extends React.Component {
     super(props);
     this.points = { min: props.min || -100, max: props.max || 100};
     this.state = { counter: props.value };
-    this.onChange = props.onChange || function () {};
+  }
+  onChange() {
+    const { onChange } = this.props;
+    const blank = () => {};
+    return onChange || blank;
   }
   render(onChange) {
     const increment = () => this.state.counter !== this.points.max ? this.setState({ counter: this.state.counter + 1} ) : {};

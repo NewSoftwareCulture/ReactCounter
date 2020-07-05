@@ -8,7 +8,11 @@ class Color extends React.Component {
     this.state = { value: props.value || 0 };
     this.color = props.color || 'None';
   };
-  onChange = this.props.onChange || function () {};
+  onChange() {
+    const { onChange } = this.props;
+    const blank = () => {};
+    return onChange || blank;
+  }
 
   render() {
     const increment = () => this.state.value !== 255 ? this.setState({ value: this.state.value + 1 }) : {};
@@ -40,8 +44,11 @@ class Counter extends React.Component {
       }
     };
   };
-  onChange = this.props.onChange || function() {};
-
+  onChange() {
+    const { onChange } = this.props;
+    const blank = () => {};
+    return onChange || blank;
+  }
   updateBG = () => this.setState({ 
     styles: { 
       ...this.state.styles,
